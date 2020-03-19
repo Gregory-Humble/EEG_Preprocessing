@@ -17,6 +17,7 @@ workDir='D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\'
 % (ft) saves files as .mat format, and MATLAB doesn't seem to like files
 % to start with numbers.
 
+%just seeing if git push works
 % If you go into the MATLAB command window and look in the workspace (usually on the right hand side), you
 % can view the variables and arrays that have been created. This is useful
 % for testing whether you've created the correct array that refers to the
