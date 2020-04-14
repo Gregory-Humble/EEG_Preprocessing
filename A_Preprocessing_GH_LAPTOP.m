@@ -1,9 +1,12 @@
-% The following line gets rid of anything that might already be open:
-clear all; close all; clc;
-eeglabpath= 'C:\Users\grego\Desktop\Matlab_EEGlab_Files\eeglab2019_1';
+%% The following line gets rid of anything that might already be open:
+clear all; 
+close all; 
+clc;
+eeglabpath = 'C:\Users\grego\Desktop\Matlab_EEGlab_Files\eeglab2019_1';
 cd(eeglabpath)
 eeglab; 
-workDir='D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\'
+workDir = 'D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\'
+
 
 %ft_defaults;
 % The following lines sets up an 'array' of strings (sequence of letters). An array is a table where
@@ -35,7 +38,7 @@ FolderCondition = {'BL_3_mins_eyes_open', 'BL_3_mins_eyes_closed', 'END_3_mins_e
 Condition = {'eyesopen_BL','eyesclosed_BL','eyesopen_END','eyesclosed_END'};
 Timepoint = {'BL','END'};
 
-caploc=['D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\standard-10-5-cap385.elp']; %path containing electrode positions
+caploc = ['D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\standard-10-5-cap385.elp']; %path containing electrode positions
 
 % Below creates variables 'SubjectStart' and 'SubjectFinish', used to
 % define which subjects from the 'ID' variable above will be processed
@@ -48,15 +51,15 @@ caploc=['D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\standard-10-5-cap385.el
 % ADJUST THE SUBJECTSTART AND SUBJECTFINISH VALUES BELOW TO ALLOCATE THE
 % SUBJECT RANGE YOU ARE PROCESSING TODAY
 
-SubjectStart=1;
-SubjectFinish=numel(ID);
+SubjectStart = 1;
+SubjectFinish = numel(ID);
 %SubjectFinish=20;
 
-ConditionStart=1;
-ConditionFinish=4;
+ConditionStart = 1;
+ConditionFinish = 4;
 
-for Subjects=SubjectStart:SubjectFinish;
-    for Cond=ConditionStart:ConditionFinish;
+for Subjects = SubjectStart:SubjectFinish;
+    for Cond = ConditionStart:ConditionFinish;
         %%
         %load data
         % The below line creates a variable cntname. Make this equal the
