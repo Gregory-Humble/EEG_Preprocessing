@@ -5,7 +5,7 @@ eeglabpath= 'C:\Users\grego\Desktop\Matlab_EEGlab_Files\eeglab2019_1';
 cd(eeglabpath)
 eeglab; 
 ft_defaults;
-workDir='D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20'
+workDir='E:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\'
 
 % The following lines sets up an 'array' of strings (sequence of letters). An array is a table where
 % each cell contains the digits or letters within the quotation marks. The
@@ -24,11 +24,8 @@ workDir='D:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20'
 % correct file/folder. If MATLAB comes up with an error, this is a good way
     % to trouble shoot.
 
-ID = {'301'};
+ID = {'301', '302', '303', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '322', '324', '325', '326', '327', '328', '329', '330', '331', '333', '335', '336', '338', '341', '343', '345', '346', '347', '348', '349', '351'};
 ftID = strcat('P', ID);
-
-%ID = {'301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '322', '324', '325', '326', '327', '328', '329', '330', '331'};
-%ftID = {'P301', 'P302', 'P303', 'P304', 'P305', 'P306', 'P307', 'P308', 'P309', 'P310', 'P311', 'P312', 'P313', 'P314', 'P315', 'P316', 'P317', 'P318', 'P319', 'P320', 'P322', 'P324', 'P325', 'P326', 'P327', 'P328', 'P329', 'P330', 'P331'};
 
 FolderCondition = {'BL_3_mins_eyes_open', 'BL_3_mins_eyes_closed', 'END_3_mins_eyes_open', 'END_3_mins_eyes_closed'};
 Condition = {'eyesopen_BL','eyesclosed_BL','eyesopen_END','eyesclosed_END'};
@@ -55,7 +52,7 @@ ConditionFinish=4;
 
 Timepoint = {'BL', 'END'};
 
-        setname = [workDir, '\1Set\345_eyesopen_BL_1.set'];
+        setname = ['E:\Alz_Clinical_Trial\Alz_Data_Analysis_10JAN20\1Set\345_eyesopen_BL_1.set'];
         EEG = pop_loadset(setname);
         
         allchan = EEG.allchan;
@@ -68,7 +65,7 @@ for Subjects=SubjectStart:SubjectFinish;
 
 
         
-        ICASetname = [workDir, '\6ICA\' ID{1,Subjects} '_' Timepoint{1,Time} '_6ICA.set'];
+        ICASetname = [workDir, '\6ICA\OLD_TO_DELETE_ONCE_ALL_FILES_ARE_REANALYSED\' ID{1,Subjects} '_' Timepoint{1,Time} '_6ICA.set'];
         EEG = pop_loadset(ICASetname);
         
         EEG.allchan = allchan;
@@ -99,7 +96,7 @@ for Subjects=SubjectStart:SubjectFinish;
     % you have different labels on your eye channels (for example E1), or no ECG channel, this
     % will need to be changed.
     
-    EEG.NoCh={'SO1'};
+    EEG.NoCh={'SO1', 'M1', 'M2'};
     EEG=pop_select(EEG,'nochannel',EEG.NoCh);
     
     % The following line stores the bad components in location with all the
@@ -112,7 +109,7 @@ for Subjects=SubjectStart:SubjectFinish;
     EEG.ProcessingAndBehaviourData.BadComponents = EEG.TMScomp;
     
     mkdir([workDir, '\7ICArejected\'])
-        ICARejectedSetname = [workDir, '\7ICArejected\' ID{1,Subjects} '_' Timepoint{1,Time} '_7ICArejected.set'];
+    ICARejectedSetname = [workDir, '\7ICArejected\OLD_TO_DELETE_ONCE_ALL_FILES_ARE_REANALYSED\' ID{1,Subjects} '_' Timepoint{1,Time} '_7ICArejected.set'];
     EEG = pop_saveset(EEG, ICARejectedSetname);
     
     end
