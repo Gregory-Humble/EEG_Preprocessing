@@ -1,4 +1,4 @@
-clear;
+zzzzclear;
 eeglabpath= '\\ad.monash.edu\home\User093\memo0002\Desktop\eeglab14_1_2b';
 cd(eeglabpath)
 eeglab; 
